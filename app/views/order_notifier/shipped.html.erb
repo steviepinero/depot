@@ -1,0 +1,9 @@
+<h3>Pokemon Order Shipped</h3>
+<p>
+  Just letting you know your order has been shipper:
+</p>
+
+<table>
+  <tr><th colspan="2">Qty</th></tr>
+  <%= render @order.line_items %>
+</table>
