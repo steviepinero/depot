@@ -6,6 +6,18 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
+# add reviews to users and products
+  concern :reviewable do
+    resources :reviews
+  end
+
+  resources :products, concern: :reviewable
+  resources :users, concern: :reviewable
+
+  resources :products, shallow: true do
+    resources :reviews
+  end
+##########
 
 
   get 'sessions/new'
